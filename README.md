@@ -31,3 +31,8 @@ Setup:-
 
 __**Things to think about**__
 * Try and separate your code out into functions
+
+# Easy
+Using if and while statements
+# Hard
+Using correct syntax. Remembering to break 'while' statements
