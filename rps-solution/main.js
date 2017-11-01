@@ -6,8 +6,8 @@ function getUserInput() {
 }
 
 // get player move
-function getPlayerMove() {
-  return getUserInput();
+function getPlayerMove(playerMove) {
+  return playerMove || getUserInput();
 }
 
 // random play
@@ -22,11 +22,47 @@ function randomPlay() {
   }
 }
 
-var test =randomPlay();
-console.log(randomPlay());
-// get computer move
 
+// get computer move
+function getComputerMove(computerMove) {
+  return computerMove || randomPlay();
+}
 
 // will need to play to 5
 
+function startGame() {
+  alert("lets play rock paper scissors")
+  //score variables
+  var playerScore = 0;
+  var computerScore = 0;
+
+  // play to 5
+  while (playerScore < 5 && computerScore < 5) {
+    var playerMove = getPlayerMove();
+    var computerMove = getComputerMove();
+    var winner = checkForWinner(playerMove, computerMove);
+    if (winner === "player"){
+      playerScore ++;
+      alert("The player won that round with - " + playerMove + "against - " + computerMove + "-------" + "The scores are --- Player " + playerScore + "Computer score --- " + computerScore);
+    } else if (winner === "computer"){
+      computerScore ++;
+      alert("The computer won that round with - " + computerMove + "against - " + playerMove + "-------" + "The scores are --- Player " + playerScore + "Computer score --- " + computerScore);
+    } else {
+      alert("That was a tie with - " + playerMove + computerMove)
+    }
+  }
+}
 // check for winner
+function checkForWinner(playerMove, computerMove) {
+  var winner;
+  if (playerMove === computerMove){
+    winner = 'tie'
+  } else if ((playerMove === "rock" && computerMove === 'scissors')||(playerMove === "paper" && computerMove === 'rock') || (playerMove === 'scissors' && computerMove === 'paper')){
+    winner = 'player';
+  } else {
+    winner = 'computer';
+  }
+  return winner;
+}
+
+startGame()
