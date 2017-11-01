@@ -24,7 +24,7 @@ function game(player, cpu) {
   }
   //cpu won
   while (cpuScore === 3) {
-    alert('Game finished. CPU won');
+    alert("Mission failed we'll get em next time. CPU won");
     break;
   }
   //game code
@@ -70,6 +70,7 @@ function game(player, cpu) {
       alert('invalid input please try again');
       game();
     }
+    break;
   }
 }
 
